@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+import sys
+
+DICTIONARETTE = {
+	"ispluk": "print or echo",
+	"chenelen": "clear screen",
+	"entourage": "enter",
+	"neuro": "instant thoughts/to add new words",
+}
+
+
+def in_awra_shell():
+    print("Welcome aboard, ladies and jimenimen! Kumustasa kalabasa. Keri ka lang ba?")
+
+    while True:
+        glingo_command = input("🍭> ").strip()
+
+        if glingo_command.lower() in ["balur", "go go go", "borlogs", "orpop na", "babush"]:
+            print("gow! doon na sa far away")
+            sys.exit()  # exit awra land
+        elif glingo_command.startswith("ispluk"):  # echo/print
+            msg = glingo_command[7:].strip("\"'")
+            print(msg)
+        elif glingo_command.lower() == "dictionarette":
+            print("📖 BEKINESE MANUALCHI\n Chika para ma-minimize ang mga bonaketch sa Pearl of the Orientalette ")
+            for word, meaning in DICTIONARETTE.items():
+               print(f"- \033[1m{word}\033[0m: {meaning}")
+        elif glingo_command == "chenelen":  # clear screen
+            print("\033c", end="")
+        else:
+            print("anechikels?! gow sa dictionarette for ur search and rescue operation.")
+
+def main():
+    #check entry cmd
+    if len(sys.argv) >= 2 and sys.argv[1].lower() == "land":
+        in_awra_shell()
+    else:
+        print("Gurl, say it right: 'awra land' para makajosok sa colorful realm.")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()

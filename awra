@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import sys
+import sys #para la ak maka push
 
 DICTIONARETTE = {
 	"ispluk": "print or echo",

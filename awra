@@ -6,29 +6,35 @@ DICTIONARETTE = {
 	"chenelen": "clear screen",
 	"entourage": "enter",
 	"neuro": "instant thoughts/to add new words",
+    
 }
 
 
 def in_awra_shell():
     print("Welcome aboard, ladies and jimenimen! Kumustasa kalabasa. Keri ka lang ba?")
 
-    while True:
-        glingo_command = input("🍭> ").strip()
+    try:
+        while True:
+            glingo_command = input("🍭> ").strip()
 
-        if glingo_command.lower() in ["balur", "go go go", "borlogs", "orpop na", "babush"]:
-            print("gow! doon na sa far away")
-            sys.exit()  # exit awra land
-        elif glingo_command.startswith("ispluk"):  # echo/print
-            msg = glingo_command[7:].strip("\"'")
-            print(msg)
-        elif glingo_command.lower() == "dictionarette":
-            print("📖 BEKINESE MANUALCHI\n Chika para ma-minimize ang mga bonaketch sa Pearl of the Orientalette ")
-            for word, meaning in DICTIONARETTE.items():
-               print(f"- \033[1m{word}\033[0m: {meaning}")
-        elif glingo_command == "chenelen":  # clear screen
-            print("\033c", end="")
-        else:
-            print("anechikels?! gow sa dictionarette for ur search and rescue operation.")
+            if glingo_command.lower() in ["balur", "go go go", "borlogs", "orpop na", "babush"]:
+                print("gow! doon na sa far away")
+                sys.exit()  # exit awra land
+            elif glingo_command.startswith("ispluk"):  # echo/print
+                msg = glingo_command[7:].strip("\"'")
+                print(msg)
+            elif glingo_command.lower() == "dictionarette":
+                print("📖 BEKINESE MANUALCHI\n Chika para ma-minimize ang mga bonaketch sa Pearl of the Orientalette ")
+                for word, meaning in DICTIONARETTE.items():
+                    print(f"- \033[1m{word}\033[0m: {meaning}")
+            elif glingo_command == "chenelen":  # clear screen
+                print("\033c", end="")
+            
+            else:
+                print("anechikels?! gow sa dictionarette for ur search and rescue operation.")
+    except KeyboardInterrupt:
+        print("\nAba, nag-stop ka na? Sige, bye na! See you sa susunod na awra adventure!")
+        sys.exit(0)
 
 def main():
     #check entry cmd
